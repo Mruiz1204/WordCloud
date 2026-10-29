@@ -152,45 +152,45 @@ st.markdown("""
 
     /* Métricas */
     [data-testid="metric-container"] {
-        background: #ffffff;
-        border: 1px solid #e5e7eb;
-        border-top: 3px solid #374151;
-        border-radius: 8px;
+        background: #1d3f4e;
+        border: 1px solid rgba(242,204,143,0.15);
+        border-top: 3px solid #e07a5f;
+        border-radius: 12px;
         padding: 18px 22px;
-        box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        box-shadow: 0 4px 18px rgba(0,0,0,0.22);
     }
     [data-testid="metric-container"] label {
-        color: #6b7280 !important;
+        color: #a9c0ca !important;
         font-size: 0.78rem !important;
         font-weight: 600 !important;
         text-transform: uppercase !important;
         letter-spacing: 0.6px !important;
     }
     [data-testid="metric-container"] [data-testid="stMetricValue"] {
-        color: #111827 !important;
+        color: #f2cc8f !important;
         font-weight: 700 !important;
         font-size: 1.55rem !important;
     }
 
     /* Header */
     .header-card {
-        background: #ffffff;
-        border: 1px solid #e5e7eb;
-        border-left: 5px solid #1f2937;
-        border-radius: 8px;
+        background: linear-gradient(135deg, #1d3f4e 0%, #1a3947 100%);
+        border: 1px solid rgba(242,204,143,0.15);
+        border-left: 5px solid #e07a5f;
+        border-radius: 14px;
         padding: 28px 36px;
         margin-bottom: 24px;
-        box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+        box-shadow: 0 6px 24px rgba(0,0,0,0.25);
     }
 
     /* Sección card */
     .section-card {
-        background: #ffffff;
-        border: 1px solid #e5e7eb;
-        border-radius: 8px;
+        background: #1d3f4e;
+        border: 1px solid rgba(242,204,143,0.15);
+        border-radius: 14px;
         padding: 24px 28px;
         margin-bottom: 16px;
-        box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        box-shadow: 0 4px 18px rgba(0,0,0,0.20);
     }
 
     /* Barras de frecuencia */
@@ -200,16 +200,16 @@ st.markdown("""
         gap: 14px;
         padding: 7px 14px;
         margin: 4px 0;
-        background: #f9fafb;
-        border: 1px solid #f3f4f6;
-        border-radius: 6px;
+        background: #1d3f4e;
+        border: 1px solid rgba(242,204,143,0.12);
+        border-radius: 8px;
         transition: background 0.15s;
     }
-    .freq-row:hover { background: #f3f4f6; }
+    .freq-row:hover { background: #24485a; }
 
     .freq-bar {
         height: 8px;
-        background: #374151;
+        background: #e07a5f;
         border-radius: 4px;
         display: inline-block;
         vertical-align: middle;
@@ -217,13 +217,13 @@ st.markdown("""
 
     /* Tag de ranking */
     .rank-tag {
-        background: #f3f4f6;
-        border: 1px solid #e5e7eb;
-        border-radius: 4px;
+        background: #24485a;
+        border: 1px solid rgba(242,204,143,0.2);
+        border-radius: 6px;
         padding: 1px 8px;
         font-size: 0.75rem;
         font-weight: 700;
-        color: #6b7280;
+        color: #f2cc8f;
         font-family: 'IBM Plex Mono', monospace;
         min-width: 36px;
         text-align: center;
@@ -235,41 +235,41 @@ st.markdown("""
         align-items: flex-start;
         gap: 12px;
         padding: 12px 16px;
-        background: #f9fafb;
-        border: 1px solid #e5e7eb;
-        border-radius: 6px;
+        background: #24485a;
+        border: 1px solid rgba(242,204,143,0.12);
+        border-radius: 10px;
         margin-bottom: 8px;
     }
 
     /* Uso cards */
     .uso-tag {
         display: inline-block;
-        background: #f3f4f6;
-        border: 1px solid #e5e7eb;
+        background: #24485a;
+        border: 1px solid rgba(242,204,143,0.18);
         border-radius: 20px;
         padding: 5px 14px;
         font-size: 0.85rem;
         font-weight: 500;
-        color: #374151;
+        color: #e8eef0;
         margin: 4px 3px;
     }
 
     /* Expander */
     div[data-testid="stExpander"] {
-        border: 1px solid #e5e7eb !important;
-        border-radius: 8px !important;
-        background: #ffffff !important;
+        border: 1px solid rgba(242,204,143,0.15) !important;
+        border-radius: 12px !important;
+        background: #1d3f4e !important;
     }
 
-    hr { border-color: #e5e7eb !important; }
+    hr { border-color: rgba(242,204,143,0.15) !important; }
 
     /* Nube container */
     .wc-container {
-        background: #ffffff;
-        border: 1px solid #e5e7eb;
-        border-radius: 8px;
+        background: #1d3f4e;
+        border: 1px solid rgba(242,204,143,0.15);
+        border-radius: 14px;
         padding: 20px;
-        box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+        box-shadow: 0 6px 24px rgba(0,0,0,0.25);
         margin-bottom: 16px;
     }
 </style>
@@ -479,8 +479,8 @@ with st.sidebar:
 st.markdown("""
 <div class="header-card">
     <p style="margin:0 0 4px 0; color:#e07a5f !important; font-family:'Montserrat',sans-serif; font-weight:700; font-size:1.1rem;">Miguel Ruiz</p>
-    <h1 style="margin:0; font-size:1.9rem; color:#111827 !important;">☁️ WordCloud Studio</h1>
-    <p style="margin:6px 0 0 0; color:#6b7280 !important; font-size:0.97rem;">
+    <h1 style="margin:0; font-size:1.9rem; color:#f2cc8f !important;">☁️ WordCloud Studio</h1>
+    <p style="margin:6px 0 0 0; color:#a9c0ca !important; font-size:0.97rem;">
         Análisis de frecuencia léxica y visualización de nubes de palabras
     </p>
 </div>
@@ -508,8 +508,8 @@ if not generar or not texto_input.strip():
             st.markdown(
                 f'<div class="info-item">'
                 f'<span style="font-size:1.3rem; flex-shrink:0;">{icono}</span>'
-                f'<div><strong style="color:#111827;">{titulo}</strong>'
-                f'<p style="margin:2px 0 0 0; color:#6b7280 !important; font-size:0.88rem;">{desc}</p></div>'
+                f'<div><strong style="color:#f2cc8f;">{titulo}</strong>'
+                f'<p style="margin:2px 0 0 0; color:#a9c0ca !important; font-size:0.88rem;">{desc}</p></div>'
                 f'</div>',
                 unsafe_allow_html=True,
             )
@@ -547,8 +547,8 @@ if not generar or not texto_input.strip():
         st.markdown("### Paletas disponibles")
         for nombre in PALETAS.keys():
             st.markdown(
-                f'<div style="padding:5px 0; border-bottom:1px solid #f3f4f6;">'
-                f'<span style="color:#374151; font-size:0.88rem; font-weight:500;">{nombre}</span>'
+                f'<div style="padding:5px 0; border-bottom:1px solid rgba(242,204,143,0.12);">'
+                f'<span style="color:#e8eef0; font-size:0.88rem; font-weight:500;">{nombre}</span>'
                 f'</div>',
                 unsafe_allow_html=True,
             )
@@ -621,10 +621,10 @@ with col_freq:
         st.markdown(
             f'<div class="freq-row">'
             f'<span class="rank-tag">#{rank:02d}</span>'
-            f'<span style="font-weight:600; color:#111827; min-width:130px; font-size:0.93rem;">{p}</span>'
+            f'<span style="font-weight:600; color:#f2cc8f; min-width:130px; font-size:0.93rem;">{p}</span>'
             f'<div class="freq-bar" style="width:{barra_w}px; opacity:{0.5 + 0.5*(f/max_freq):.2f};"></div>'
             f'<span style="font-family:\'IBM Plex Mono\',monospace; font-size:0.88rem; '
-            f'color:#374151; min-width:28px; text-align:right; font-weight:500;">{f}</span>'
+            f'color:#e07a5f; min-width:28px; text-align:right; font-weight:500;">{f}</span>'
             f'</div>',
             unsafe_allow_html=True,
         )
@@ -650,8 +650,8 @@ with st.expander("Ver texto procesado (tras eliminación de stopwords)"):
     preview = texto_limpio[:2500] + ("..." if len(texto_limpio) > 2500 else "")
     st.markdown(
         f'<p style="font-family:IBM Plex Mono,monospace; font-size:0.85rem; '
-        f'color:#374151; background:#f9fafb; padding:16px; border-radius:6px; '
-        f'border:1px solid #e5e7eb; line-height:1.8;">{preview}</p>',
+        f'color:#e8eef0; background:#24485a; padding:16px; border-radius:10px; '
+        f'border:1px solid rgba(242,204,143,0.15); line-height:1.8;">{preview}</p>',
         unsafe_allow_html=True,
     )
 
