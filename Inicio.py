@@ -48,6 +48,8 @@ st.markdown("""
     .stApp {
         background-color: #14303d;
     }
+    [data-testid="stHeader"] { background: transparent !important; }
+    [data-testid="stToolbar"] { right: 1rem; }
 
     /* Sidebar azul petróleo más oscuro */
     [data-testid="stSidebar"] {
