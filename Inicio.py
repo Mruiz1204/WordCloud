@@ -17,13 +17,18 @@ import re
 import io
 from collections import Counter
 from wordcloud import WordCloud, STOPWORDS
+from PIL import Image
 
 # ─────────────────────────────────────────────
 # CONFIGURACIÓN
 # ─────────────────────────────────────────────
+try:
+    _icon = Image.open('logo_mr.png')
+except Exception:
+    _icon = "☁️"
 st.set_page_config(
-    page_title="WordCloud Studio",
-    page_icon="☁️",
+    page_title="WordCloud Studio · Miguel Ruiz",
+    page_icon=_icon,
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -39,35 +44,35 @@ st.markdown("""
         font-family: 'Inter', sans-serif;
     }
 
-    /* Fondo general gris muy claro */
+    /* Fondo general azul petróleo (Miguel Ruiz) */
     .stApp {
-        background-color: #f4f5f7;
+        background-color: #14303d;
     }
 
-    /* Sidebar blanco con borde sutil */
+    /* Sidebar azul petróleo más oscuro */
     [data-testid="stSidebar"] {
-        background-color: #ffffff !important;
-        border-right: 1px solid #dde1e7;
+        background-color: #12272f !important;
+        border-right: 1px solid #2a4b57;
     }
     [data-testid="stSidebar"] h2,
     [data-testid="stSidebar"] h3 {
-        color: #161a1d !important;
+        color: #e07a5f !important;
         font-weight: 700 !important;
         font-size: 0.95rem !important;
         text-transform: uppercase !important;
         letter-spacing: 0.8px !important;
     }
     [data-testid="stSidebar"] label {
-        color: #4a5568 !important;
+        color: #e8eef0 !important;
         font-size: 0.85rem !important;
         font-weight: 500 !important;
     }
     [data-testid="stSidebar"] p {
-        color: #6b7280 !important;
+        color: #c4d0d6 !important;
         font-size: 0.88rem !important;
     }
     [data-testid="stSidebar"] hr {
-        border-color: #e5e7eb !important;
+        border-color: #2a4b57 !important;
         margin: 16px 0 !important;
     }
 
@@ -96,29 +101,29 @@ st.markdown("""
 
     /* Títulos */
     h1 {
-        font-family: 'Inter', sans-serif !important;
-        color: #111827 !important;
+        font-family: 'Montserrat', 'Inter', sans-serif !important;
+        color: #f2cc8f !important;
         font-weight: 700 !important;
         letter-spacing: -0.5px !important;
     }
     h2, h3 {
-        font-family: 'Inter', sans-serif !important;
-        color: #1f2937 !important;
+        font-family: 'Montserrat', 'Inter', sans-serif !important;
+        color: #e07a5f !important;
         font-weight: 600 !important;
     }
     p, li {
-        color: #374151 !important;
+        color: #e8eef0 !important;
         font-size: 0.95rem !important;
         line-height: 1.65 !important;
     }
 
-    /* Botón principal — antracita sólido */
+    /* Botón principal — terracota */
     .stButton > button {
-        background: #1f2937 !important;
+        background: #e07a5f !important;
         color: #ffffff !important;
         border: none !important;
         border-radius: 6px !important;
-        font-family: 'Inter', sans-serif !important;
+        font-family: 'Montserrat', 'Inter', sans-serif !important;
         font-weight: 600 !important;
         font-size: 0.9rem !important;
         letter-spacing: 0.3px !important;
@@ -127,13 +132,13 @@ st.markdown("""
         transition: background 0.2s ease, box-shadow 0.2s ease !important;
     }
     .stButton > button:hover {
-        background: #111827 !important;
-        box-shadow: 0 2px 12px rgba(17,24,39,0.25) !important;
+        background: #c9583c !important;
+        box-shadow: 0 2px 12px rgba(224,122,95,0.35) !important;
     }
 
-    /* Botón descarga — gris slate */
+    /* Botón descarga — ámbar/terracota */
     [data-testid="stDownloadButton"] button {
-        background: #374151 !important;
+        background: #c9583c !important;
         color: #ffffff !important;
         border: none !important;
         border-radius: 6px !important;
@@ -142,7 +147,7 @@ st.markdown("""
         transition: background 0.2s !important;
     }
     [data-testid="stDownloadButton"] button:hover {
-        background: #1f2937 !important;
+        background: #e07a5f !important;
     }
 
     /* Métricas */
@@ -296,11 +301,12 @@ def obtener_stopwords(idioma):
 # PALETAS PROFESIONALES
 # ─────────────────────────────────────────────
 PALETAS = {
+    "Terracota":            ["#7c2d12","#9a3412","#c2410c","#ea580c","#f97316","#fb923c","#fdba74"],
+    "Azul petróleo":        ["#14303d","#1b3a4b","#2a4b57","#3a6274","#5b8a9e","#8fb3c0","#f2cc8f"],
     "Escala de grises":     ["#111827","#1f2937","#374151","#4b5563","#6b7280","#9ca3af","#d1d5db"],
     "Azul corporativo":     ["#1e3a5f","#1d4ed8","#2563eb","#3b82f6","#60a5fa","#93c5fd","#0f2942"],
     "Verde institucional":  ["#064e3b","#065f46","#047857","#059669","#10b981","#34d399","#6ee7b7"],
     "Gris azulado":         ["#0f172a","#1e293b","#334155","#475569","#64748b","#94a3b8","#cbd5e1"],
-    "Terracota":            ["#7c2d12","#9a3412","#c2410c","#ea580c","#f97316","#fb923c","#fdba74"],
     "Índigo profundo":      ["#1e1b4b","#312e81","#3730a3","#4338ca","#4f46e5","#6366f1","#818cf8"],
     "Monocromático negro":  ["#000000","#111111","#222222","#444444","#666666","#888888","#aaaaaa"],
 }
@@ -472,7 +478,8 @@ with st.sidebar:
 # Header
 st.markdown("""
 <div class="header-card">
-    <h1 style="margin:0; font-size:1.9rem;">☁️ WordCloud Studio</h1>
+    <p style="margin:0 0 4px 0; color:#e07a5f !important; font-family:'Montserrat',sans-serif; font-weight:700; font-size:1.1rem;">Miguel Ruiz</p>
+    <h1 style="margin:0; font-size:1.9rem; color:#111827 !important;">☁️ WordCloud Studio</h1>
     <p style="margin:6px 0 0 0; color:#6b7280 !important; font-size:0.97rem;">
         Análisis de frecuencia léxica y visualización de nubes de palabras
     </p>
